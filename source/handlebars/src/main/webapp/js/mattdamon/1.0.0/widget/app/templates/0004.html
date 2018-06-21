@@ -1,0 +1,14 @@
+{{!--注释--}}
+<div class="post">
+	<h1>Echo author</h1>
+	<h2>By {{fullName author}}</h2>
+	<div class="body">{{body}}</div>
+
+	<h1>Each Comments</h1>
+
+	{{#each comments}}
+	<h2>By {{fullName author}}</h2>
+	<div class="body">{{this.body}}</div>
+	<div class="body">{{body}}</div>
+	{{/each}}
+</div>

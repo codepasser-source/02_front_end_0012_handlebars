@@ -1,0 +1,21 @@
+{{!--注释--}}
+{{#if list}}
+<ul id="list">  
+    {{#each list}}
+        <li>{{this}}</li>
+    {{/each}}
+</ul>  
+{{else}}
+    <p>{{error}}</p>
+{{/if}}
+
+<hr>
+{{#unless info}}
+<ul id="list">  
+    {{#each list}}
+        <li>{{this}}</li>
+    {{/each}}
+</ul>  
+{{else}}
+    <p>{{error}}</p>
+{{/unless}}

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Handlebars</title>
+</head>
+<body>
+	<h1>Handlebars 模版转义html</h1>
+	<a href="index.html">首页</a>
+	<hr>
+	<div name="main-container"></div>
+</body>
+<script type="text/javascript" src="js/mattdamon.js"></script>
+<script type="text/javascript">
+	mattdamon.lib.requirejs("/require.js", function() {
+		requirejs.config({
+			//baseurl必须指定为requirejs的路径否则i18n不能动态设置。只能依赖于IE local设置
+			baseUrl : "js/requirejs/" + version.requirejs,
+			paths : {
+				jQuery : "../../jquery/" + version.jQuery + "/jquery",
+				handlebars : "../../handlebars/" + version.handlebars
+						+ "/handlebars",
+				mattdamon : "../../mattdamon/" + version.mattdamon
+			},
+			config : {
+				i18n : {
+					locale : "zh"
+				}
+			}
+		});
+		console.log("require.js completed");
+		require([ "jQuery", "handlebars" ], function() {
+			require([ "mattdamon/widget/app/0003" ], function(Main) {
+				console.log("main.js completed");
+				var main = new Main({
+					placeholder : "div[name='main-container']",
+					// 效果fadeIn，slideDown,show
+					animation : 'fadeIn'
+				});
+			});
+
+		});
+
+	});
+</script>
+</html>

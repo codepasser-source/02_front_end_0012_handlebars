@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Handlebars</title>
+</head>
+<body>
+	<h1>Handlebars</h1>
+	<hr>
+	<div name="main-container">
+	<a href="0001_base.html">0001 base</a>
+	<br>
+	<a href="0002_list.html">0002 list遍历</a>
+	<br>
+	<a href="0003_html.html">0003 html转义</a>
+	<br>
+	<a href="0004_each.html">0004 each</a>
+	<br>
+	<a href="0005_if.html">0005 if unless</a>
+	</div>
+</body>
+<script type="text/javascript" src="js/mattdamon.js"></script>
+<script type="text/javascript">
+	mattdamon.lib.requirejs("/require.js", function() {
+		requirejs.config({
+			//baseurl必须指定为requirejs的路径否则i18n不能动态设置。只能依赖于IE local设置
+			baseUrl : "js/requirejs/" + version.requirejs,
+			paths : {
+				jQuery : "../../jquery/" + version.jQuery + "/jquery",
+				handlebars : "../../handlebars/" + version.handlebars
+						+ "/handlebars",
+				mattdamon : "../../mattdamon/" + version.mattdamon
+			},
+			config : {
+				i18n : {
+					locale : "zh"
+				}
+			}
+		});
+		console.log("require.js completed");
+	});
+</script>
+</html>
